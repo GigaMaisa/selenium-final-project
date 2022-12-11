@@ -16,6 +16,8 @@ public class CinemasPage extends Page{
         List<WebElement> cinemaElements = findElementsByXpath(driver, allCinemaEventsXpath);
         List<WebElement> cinemaBuyButtons = findElementsByXpath(driver, buyTicketButtonXpath);
         hoverOverElement(cinemaElements.get(0), driver);
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until
+                (ExpectedConditions.elementToBeClickable(cinemaBuyButtons.get(0)));
         clickOnElement(cinemaBuyButtons.get(0));
 
         String movieDetailsXpath = "//div[@class='movie-detailed-info']";
